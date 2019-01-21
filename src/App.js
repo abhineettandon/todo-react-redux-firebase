@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import { Provider } from 'react-redux'
+import store from './store'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+class App extends React.Component {
+    render() {
+        return (
+            <Provider store={store}>
+
+                <div className="container">
+                    <div className="row">
+                        <h1>Todo list</h1>
+                    </div>
+                    <div className="row">
+                        <TodoForm />
+                    </div>
+                    <div className="row">
+                        <TodoList />
+                    </div>
+                </div>
+
+            </Provider>
+        )
+    }
 }
 
-export default App;
+export default App
